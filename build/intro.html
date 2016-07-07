@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction and Notes &mdash; yasara_doc 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="yasara_doc 1.1 documentation" href="index.html" />
+    <link rel="next" title="Getting into the Menus" href="menus_placment.html" />
+    <link rel="prev" title="Welcome to yasara_doc’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction-and-notes">
+<h1>Introduction and Notes<a class="headerlink" href="#introduction-and-notes" title="Permalink to this headline">¶</a></h1>
+<p>This documentation is for the python portion of the Yasara api.
+Much of this information was obtained by infering arguments from
+the method signitures and the Yasara CLI commands.  As such this
+information is gerunteed to be incomplete.</p>
+</div>
+<div class="section" id="restrictions">
+<h1>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h1>
+<p>If you want to add a class to your plugin please bear in mind that it
+cannot be defined in the plugin itself.  It will have to be in a seperate
+python file that you import to your plugin.  The line &#8221; #YASARA PLUGIN &#8221;
+must come first, this can be followed by the author, tital, and any other
+notes you wish to make.  Also note that method definitions must come before
+the if structures but after the menu definitions.  Keep in mind that all
+indents within a plugin must be 2 spaces, not 4.  This is enforced by Yasara.</p>
+<p>An example of the necisary structure.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># YASARA PLUGIN</span>
+<span class="c1"># Title:  Fee Fie Foe Fum</span>
+<span class="c1"># Author: King Lear</span>
+<span class="c1">#-----------------------------------</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MainMenu: Effects</span>
+<span class="sd">  PullDownMenu after Text: Bill&#39;s plug</span>
+<span class="sd">    SubMenu: Atom Zoom</span>
+<span class="sd">      AtomSelectionWindow: The Round</span>
+<span class="sd">      Request: play</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">yasara</span>
+<span class="kn">from</span> <span class="nn">players</span> <span class="kn">import</span> <span class="n">Goneril</span><span class="p">,</span> <span class="n">Regan</span><span class="p">,</span> <span class="n">Cordelia</span>
+
+<span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;I smell the blood of an english man!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;play&quot;</span><span class="p">:</span>
+  <span class="n">foo</span><span class="p">()</span>
+
+
+<span class="n">yasara</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>As you can see this starts with the YASARA PLUGIN identifier, followed by
+it&#8217;s placment in the <a class="reference internal" href="menus_placment.html#top-menus-placment"><span>menus</span></a>, then imports, functions,
+the yasara <a class="reference internal" href="main_if_structure.html#top-main-if-structure"><span>if statment</span></a>, and then <a class="reference internal" href="close_plug.html#top-close-plug"><span>closeing the
+plugin</span></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction and Notes</a></li>
+<li><a class="reference internal" href="#restrictions">Restrictions</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to yasara_doc&#8217;s documentation!</a></li>
+      <li>Next: <a href="menus_placment.html" title="next chapter">Getting into the Menus</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/intro.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, James Ebert.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/intro.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
