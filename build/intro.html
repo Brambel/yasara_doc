@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction and Notes &mdash; yasara_doc 1.1 documentation</title>
+  <title>Introduction &mdash; yasara_doc 1.1 documentation</title>
   
 
   
@@ -31,7 +31,6 @@
 
   
     <link rel="top" title="yasara_doc 1.1 documentation" href="index.html"/>
-        <link rel="next" title="Getting into the Menus" href="menus_placment.html"/>
         <link rel="prev" title="Welcome to yasara_doc’s documentation!" href="index.html"/> 
 
   
@@ -82,11 +81,13 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction and Notes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#restrictions">Restrictions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="menus_placment.html">Getting into the Menus</a></li>
-<li class="toctree-l1"><a class="reference internal" href="main_if_structure.html">The Main Body</a></li>
-<li class="toctree-l1"><a class="reference internal" href="close_plug.html">Closing the Plugin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#restrictions">Restrictions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#menu-placment">Menu Placment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-if-structure">Main If Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closeing-the-plug">Closeing the Plug</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -117,7 +118,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Introduction and Notes</li>
+    <li>Introduction</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -131,15 +132,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="introduction-and-notes">
-<h1>Introduction and Notes<a class="headerlink" href="#introduction-and-notes" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>This documentation is for the python portion of the Yasara api.
 Much of this information was obtained by infering arguments from
 the method signitures and the Yasara CLI commands.  As such this
 information is gerunteed to be incomplete.</p>
-</div>
 <div class="section" id="restrictions">
-<h1>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h1>
+<h2>Restrictions<a class="headerlink" href="#restrictions" title="Permalink to this headline">¶</a></h2>
 <p>If you want to add a class to your plugin please bear in mind that it
 cannot be defined in the plugin itself.  It will have to be in a seperate
 python file that you import to your plugin.  The line &#8221; #YASARA PLUGIN &#8221;
@@ -173,10 +173,20 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
 <span class="n">yasara</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>A you can see this starts with the YASARA PLUGIN identifier, followed by
-it&#8217;s placment in the <a class="reference internal" href="menus_placment.html#top-menus-placment"><span>menus</span></a>, then imports, functions,
-the yasara <a class="reference internal" href="main_if_structure.html#top-main-if-structure"><span>if statment</span></a>, and then <a class="reference internal" href="close_plug.html#top-close-plug"><span>closeing the
-plugin</span></a>.</p>
+<p>A you can see this starts with the YASARA PLUGIN identifier, followed by the <a class="reference internal" href="#menu-placment">Menu Placment</a>, then imports, functions,the yasara <a class="reference internal" href="#main-if-structure">Main If Structure</a>, and then <a class="reference internal" href="#closeing-the-plug">Closeing the Plug</a>.</p>
+</div>
+<div class="section" id="menu-placment">
+<h2>Menu Placment<a class="headerlink" href="#menu-placment" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="main-if-structure">
+<h2>Main If Structure<a class="headerlink" href="#main-if-structure" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="closeing-the-plug">
+<h2>Closeing the Plug<a class="headerlink" href="#closeing-the-plug" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
 </div>
 
 
@@ -185,8 +195,6 @@ plugin</span></a>.</p>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="menus_placment.html" class="btn btn-neutral float-right" title="Getting into the Menus" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to yasara_doc’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

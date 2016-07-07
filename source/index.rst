@@ -12,11 +12,8 @@ Contents:
    :maxdepth: 2
    
    intro
-   menus_placment
-   main_if_structure
-   close_plug
-
-
+   working_in_python
+::
 
 
 Indices and tables

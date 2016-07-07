@@ -1,13 +1,14 @@
-Introduction and Notes
-**********************
-
+Introduction
+************
+   
 This documentation is for the python portion of the Yasara api.
 Much of this information was obtained by infering arguments from 
 the method signitures and the Yasara CLI commands.  As such this
 information is gerunteed to be incomplete.
 
+============
 Restrictions
-************
+============
 
 If you want to add a class to your plugin please bear in mind that it
 cannot be defined in the plugin itself.  It will have to be in a seperate
@@ -44,7 +45,23 @@ An example of the necisary structure.
  yasara.plugin.end()
 ::
 
-A you can see this starts with the YASARA PLUGIN identifier, followed by 
-it's placment in the :ref:`menus <top-menus-placment>`, then imports, functions,
-the yasara :ref:`if statment <top-main-if-structure>`, and then :ref:`closeing the
-plugin <top-close-plug>`.
+A you can see this starts with the YASARA PLUGIN identifier, followed by the `Menu Placment`_, then imports, functions,the yasara `Main If Structure`_, and then `Closeing the Plug`_.
+
+=============
+Menu Placment
+=============
+
+TODO
+
+=================
+Main If Structure
+=================
+
+TODO 
+
+=================
+Closeing the Plug
+=================
+
+TODO
+
