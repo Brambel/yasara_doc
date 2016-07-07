@@ -15,7 +15,7 @@ python file that you import to your plugin.  The line " #YASARA PLUGIN "
 must come first, this can be followed by the author, tital, and any other
 notes you wish to make.  Also note that method definitions must come before
 the if structures but after the menu definitions.  Keep in mind that all
-indents within a plugin must be 2 spaces, not 4.  This is enforced by Yasara.
+indents within a plugin must be two spaces, not four, this is enforced by Yasara.
 
 An example of the necisary structure.
 ::
@@ -42,8 +42,9 @@ An example of the necisary structure.
  
  
  yasara.plugin.end()
+::
 
-As you can see this starts with the YASARA PLUGIN identifier, followed by 
+A you can see this starts with the YASARA PLUGIN identifier, followed by 
 it's placment in the :ref:`menus <top-menus-placment>`, then imports, functions,
 the yasara :ref:`if statment <top-main-if-structure>`, and then :ref:`closeing the
 plugin <top-close-plug>`.
