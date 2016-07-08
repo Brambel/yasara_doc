@@ -150,7 +150,29 @@ notes you wish to make.  Also note that method definitions must come before
 the if structures but after the menu definitions.  Keep in mind that all
 indents within a plugin must be two spaces, not four, this is enforced by Yasara.</p>
 <p>An example of the necisary structure.</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># YASARA PLUGIN</span>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># YASARA PLUGIN</span>
 <span class="c1"># Title:  Fee Fie Foe Fum</span>
 <span class="c1"># Author: King Lear</span>
 <span class="c1">#-----------------------------------</span>
@@ -174,16 +196,21 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
 
 <span class="n">yasara</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>A you can see this starts with the YASARA PLUGIN identifier, followed by the <a class="reference internal" href="#menu-placment">Menu Placment</a>, then imports, functions,the yasara <a class="reference internal" href="#main-if-structure">Main If Structure</a>, and then <a class="reference internal" href="#closeing-the-plug">Closeing the Plug</a>.</p>
 <p>We will be hitting the high points, especially gotcha issues, but our understanding is far from complete and you may find the original docs usefull.  We will try to link the relevent sections of the Yasara documentation when possible.</p>
-<p>doc/Plugins2.html
-TODO make a link ^</p>
+<p>See <a class="reference download internal" href="_downloads/Plugins.pdf"><code class="xref download docutils literal"><span class="pre">original</span> <span class="pre">docs</span></code></a>.</p>
 </div>
 <div class="section" id="menu-placment">
 <h2>Menu Placment<a class="headerlink" href="#menu-placment" title="Permalink to this headline">¶</a></h2>
 <p>The portion of the code contained in &#8220;&#8221;&#8221; is how you determin where you menu will sit and what will happen when they select the option.  In this example</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">MainMenu: Effects</span>
 <span class="sd">  PullDownMenu after Text: Bill&#39;s plug</span>
 <span class="sd">    SubMenu: Theater</span>
@@ -191,16 +218,39 @@ TODO make a link ^</p>
 <span class="sd">      Request: play</span>
 <span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
-</div>
+</td></tr></table></div>
 <p>we are placing our menu item under the &#8220;Effects&#8221; tab, in the &#8220;PullDownMenu&#8221; specifying that it will come after the &#8220;Text&#8221; item on the list.  It&#8217;s name will be &#8220;Bills Plug&#8221;.  then we tell Yasara that when you click Bill&#8217;s Plug you will get a SubMenu who&#8217;s name is Theater.  So from the main menu bar at the top of Yasara you would select Effects==&gt;Bill&#8217;s Plug==&gt;Theater .  After defining the location of our menu item we tell Yasara what we want to happen when it&#8217;s selected.  In this case it opens an &#8220;AtomSelectionWindow&#8221; who title is The Round.  The final line is the Request.  This is the signal that Yasara will send when they select ok in the AtomSelectionWindow and it&#8217;s what we will be catching in the IF statments that make up the body of the program.</p>
 </div>
 <div class="section" id="main-if-structure">
 <h2>Main If Structure<a class="headerlink" href="#main-if-structure" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;play&quot;</span><span class="p">:</span>
+  <span class="n">foo</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;the show must go on!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;fire&quot;</span><span class="p">:</span>
+  <span class="k">print</span><span class="p">(</span><span class="s2">&quot;shows over&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>the yasara.request field holds the value assigned by the event listner when the user selected clicked on a menu item.  This needs to mirror the string you selected for Request in the above section.  You can put whatever code you want within the if block, and depending on your plugs structure you can also use if else, do not use a closing else statment.</p>
 </div>
 <div class="section" id="closeing-the-plug">
 <h2>Closeing the Plug<a class="headerlink" href="#closeing-the-plug" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>the final line in any plugin must be</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">yasara</span><span class="o">.</span><span class="n">plugin</span><span class="o">.</span><span class="n">end</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>without it things get strange and broken very fast.</p>
 </div>
 </div>
 
