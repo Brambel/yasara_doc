@@ -31,6 +31,7 @@
 
   
     <link rel="top" title="yasara_doc 1.1 documentation" href="index.html"/>
+        <link rel="next" title="Playing with Python" href="working_in_python.html"/>
         <link rel="prev" title="Welcome to yasara_doc’s documentation!" href="index.html"/> 
 
   
@@ -88,6 +89,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#closeing-the-plug">Closeing the Plug</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="working_in_python.html">Playing with Python</a></li>
 </ul>
 
             
@@ -174,10 +176,23 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
 </pre></div>
 </div>
 <p>A you can see this starts with the YASARA PLUGIN identifier, followed by the <a class="reference internal" href="#menu-placment">Menu Placment</a>, then imports, functions,the yasara <a class="reference internal" href="#main-if-structure">Main If Structure</a>, and then <a class="reference internal" href="#closeing-the-plug">Closeing the Plug</a>.</p>
+<p>We will be hitting the high points, especially gotcha issues, but our understanding is far from complete and you may find the original docs usefull.  We will try to link the relevent sections of the Yasara documentation when possible.</p>
+<p>doc/Plugins2.html
+TODO make a link ^</p>
 </div>
 <div class="section" id="menu-placment">
 <h2>Menu Placment<a class="headerlink" href="#menu-placment" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>The portion of the code contained in &#8220;&#8221;&#8221; is how you determin where you menu will sit and what will happen when they select the option.  In this example</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">MainMenu: Effects</span>
+<span class="sd">  PullDownMenu after Text: Bill&#39;s plug</span>
+<span class="sd">    SubMenu: Theater</span>
+<span class="sd">      AtomSelectionWindow: The Round</span>
+<span class="sd">      Request: play</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>we are placing our menu item under the &#8220;Effects&#8221; tab, in the &#8220;PullDownMenu&#8221; specifying that it will come after the &#8220;Text&#8221; item on the list.  It&#8217;s name will be &#8220;Bills Plug&#8221;.  then we tell Yasara that when you click Bill&#8217;s Plug you will get a SubMenu who&#8217;s name is Theater.  So from the main menu bar at the top of Yasara you would select Effects==&gt;Bill&#8217;s Plug==&gt;Theater .  After defining the location of our menu item we tell Yasara what we want to happen when it&#8217;s selected.  In this case it opens an &#8220;AtomSelectionWindow&#8221; who title is The Round.  The final line is the Request.  This is the signal that Yasara will send when they select ok in the AtomSelectionWindow and it&#8217;s what we will be catching in the IF statments that make up the body of the program.</p>
 </div>
 <div class="section" id="main-if-structure">
 <h2>Main If Structure<a class="headerlink" href="#main-if-structure" title="Permalink to this headline">¶</a></h2>
@@ -195,6 +210,8 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="working_in_python.html" class="btn btn-neutral float-right" title="Playing with Python" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Welcome to yasara_doc’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
