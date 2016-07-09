@@ -190,7 +190,7 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
 <span class="k">def</span> <span class="nf">foo</span><span class="p">():</span>
   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;I smell the blood of an english man!&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;play&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;play&quot;</span><span class="p">):</span>
   <span class="n">foo</span><span class="p">()</span>
 
 
@@ -231,18 +231,18 @@ indents within a plugin must be two spaces, not four, this is enforced by Yasara
 6
 7
 8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;play&quot;</span><span class="p">:</span>
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;play&quot;</span><span class="p">):</span>
   <span class="n">foo</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;stop&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;stop&quot;</span><span class="p">):</span>
   <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;the show must go on!&quot;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="ow">is</span> <span class="s2">&quot;fire&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">yasara</span><span class="o">.</span><span class="n">request</span> <span class="o">==</span> <span class="s2">&quot;fire&quot;</span><span class="p">):</span>
   <span class="k">print</span><span class="p">(</span><span class="s2">&quot;shows over&quot;</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
-<p>the yasara.request field holds the value assigned by the event listner when the user selected clicked on a menu item.  This needs to mirror the string you selected for Request in the above section.  You can put whatever code you want within the if block, and depending on your plugs structure you can also use if else, do not use a closing else statment.</p>
+<p>The first thing you may notice is that the actual if statments are not very pythonesc.  That is because this is the only way that yasara will evaluate them correctly.  Other if statments inside your methods can be written if not is None: but not these.  The yasara.request field holds the value assigned by the event listner when the user selected clicked on a menu item.  This needs to mirror the string you selected for Request in the above section.  You can put whatever code you want within the if block, and depending on your plugs structure you can also use if else, do not use a closing else statment.</p>
 </div>
 <div class="section" id="closeing-the-plug">
 <h2>Closeing the Plug<a class="headerlink" href="#closeing-the-plug" title="Permalink to this headline">¶</a></h2>

@@ -43,7 +43,7 @@ An example of the necisary structure.
  def foo():
    print("I smell the blood of an english man!")
  
- if yasara.request is "play":
+ if (yasara.request == "play"):
    foo()
  
  
@@ -81,18 +81,18 @@ Main If Structure
 
 ::
 
- if yasara.request is "play":
+ if (yasara.request == "play"):
    foo()
    
- if yasara.request is "stop":
+ if (yasara.request == "stop"):
    for x in range(5):
      print("the show must go on!")
  
- if yasara.request is "fire":
+ if (yasara.request == "fire"):
    print("shows over")
 
 
-the yasara.request field holds the value assigned by the event listner when the user selected clicked on a menu item.  This needs to mirror the string you selected for Request in the above section.  You can put whatever code you want within the if block, and depending on your plugs structure you can also use if else, do not use a closing else statment.
+The first thing you may notice is that the actual if statments are not very pythonesc.  That is because this is the only way that yasara will evaluate them correctly.  Other if statments inside your methods can be written if not is None: but not these.  The yasara.request field holds the value assigned by the event listner when the user selected clicked on a menu item.  This needs to mirror the string you selected for Request in the above section.  You can put whatever code you want within the if block, and depending on your plugs structure you can also use if else, do not use a closing else statment.
 
 =================
 Closeing the Plug
