@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
    
    intro
+   viewing_tool
    working_in_python
 ::
 

@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>View Finder Break Down &mdash; yasara_doc 1.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="yasara_doc 1.1 documentation" href="index.html"/>
+        <link rel="next" title="Playing with Python" href="working_in_python.html"/>
+        <link rel="prev" title="Introduction" href="intro.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> yasara_doc
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">View Finder Break Down</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#config">Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#atomzoom">AtomZoom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#residue-zoom">Residue Zoom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recenteratomview">RecenterAtomView</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recenter-residue-view">Recenter Residue View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#close">Close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#close-without-write">Close Without Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cleanfile">cleanFile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closenowrite">closeNoWrite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#closeup">closeUp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commonbuttons">commonButtons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recolor">recolor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recordrotate">recordRotate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replayatom">replayAtom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#replayprotein">replayProtein</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stopmacrofile">stopMacroFile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zoomatom">zoomAtom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zoomresidue">zoomResidue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#savedata">saveData</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-members">Data Members</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#points">points</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Data Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#diff-self-point">diff(self, point):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parser">parser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Data Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Methods</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#writefile-hilightselection-filepersistance-color-delay">writeFile(hilightSelection, filePersistance, color, delay):</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#readfile-data">readFile (data):</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="working_in_python.html">Playing with Python</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">yasara_doc</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>View Finder Break Down</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/viewing_tool.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="view-finder-break-down">
+<h1>View Finder Break Down<a class="headerlink" href="#view-finder-break-down" title="Permalink to this headline">¶</a></h1>
+<p>This section looks at the methods in the View Finder tool.  It&#8217;s broken down first by the sectinos of the main if statment (labeld by the Yasara request used, listed in the order they apear in the code), then supporting methods within ViewFinder.py (arranged alphabeticly) and ending with the supporting classes found in ViewFinderSupport.py</p>
+<div class="section" id="config">
+<h2>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<p>The plugin jumps here after the user clicks &#8220;ok&#8221; on the custom config menu</p>
+<p>we use</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">Yasara</span><span class="o">.</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">list</span>
+</pre></div>
+</div>
+<p>to access the options the user picked</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">yasara</span><span class="o">.</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">list</span><span class="p">)</span> <span class="ow">is</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">yasara</span><span class="o">.</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This check is done to ensure that we have an entry for the the color selection.  Yasara sets this to an empty array if the user didn&#8217;t select a color from this list.  This would raise an access exception in the next line.</p>
+<p>we call the parser object and write the user selections to the vf_setup.ini</p>
+</div>
+<div class="section" id="atomzoom">
+<h2>AtomZoom<a class="headerlink" href="#atomzoom" title="Permalink to this headline">¶</a></h2>
+<p>This is where the plugin goes after the Atom Zoom option has been selected and 1 or more atoms have been picked from the Atom selection window.</p>
+<p>the first thing we do is call the stopMacroFile method to ensure that their macro has been stoped.  when we return we are also gerunteed to have a saveData object in memory at yasara.storage.</p>
+<p>we then set the selection_type in memory to ATOM so that when we go to undo the recoloring we&#8217;ll be able to call the appropriate method.  We use a constant flag rather then attaching the required method directly because Yasara does not like methods attached to variables.</p>
+<p>We check storage to make sure that the user has the hilighting option selected in the .ini file and then zip through the list of selected atoms changing their color.  we also store the atom identfier in the save data so we can reset them to the proper default color when the user is finished wtih this selection.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">selection_type</span> <span class="o">=</span> <span class="n">ATOM</span>
+<span class="n">atomSelect</span> <span class="o">=</span> <span class="n">yasara</span><span class="o">.</span><span class="n">selection</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">atom</span>
+<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">hilights_on</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">atom</span> <span class="ow">in</span> <span class="n">atomSelect</span><span class="p">:</span>
+                <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">repaintList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">number</span><span class="o">.</span><span class="n">inyas</span><span class="p">)</span>
+                <span class="n">yasara</span><span class="o">.</span><span class="n">ColorAtom</span><span class="p">(</span><span class="n">atom</span><span class="o">.</span><span class="n">number</span><span class="o">.</span><span class="n">inyas</span><span class="p">,</span> <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">hilight_color</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>After the coloring we save the first atom in the selection (because this is the atom we will actually zoom in on.  If we zoom more then one atom Yasara will only pan with no rotation.  This severly limits the views we get.  If the entire selection is not in view after a zoom it is better for the user to save the move and then zoom out).  we then zoom in on the target atom.  the last two lines display the buttons in the hud for the user.</p>
+</div>
+<div class="section" id="residue-zoom">
+<h2>Residue Zoom<a class="headerlink" href="#residue-zoom" title="Permalink to this headline">¶</a></h2>
+<p>The structure of this method works in the same way as Atom Zoom.  Due to the structure of yasara plugins it was decided that it was better to duplicate a large portion of the code rather then to write very convoluted code that would make common features of atom and residue zoom reusable.</p>
+</div>
+<div class="section" id="recenteratomview">
+<h2>RecenterAtomView<a class="headerlink" href="#recenteratomview" title="Permalink to this headline">¶</a></h2>
+<p>This is the request sent by the Recenter Atom View button created at the end of the Atom View if statment.  in Yasara buttons created for the hud use the name of the button with spaces trimed as teh request.  This statment just recalls the replay atom method.</p>
+</div>
+<div class="section" id="recenter-residue-view">
+<h2>Recenter Residue View<a class="headerlink" href="#recenter-residue-view" title="Permalink to this headline">¶</a></h2>
+<p>Works exactly the same as Recenter Atom View.</p>
+</div>
+<div class="section" id="close">
+<h2>Close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h2>
+<p>This is tied to the Close button that apears in the hud.  we check to see if we hilighted any atoms or residues and if so we call a method to recolor them.  Since recoloring is done based on the default element color we need to check if we are hilighting as the user may have turned off highlighting due to custom colors scheme that we don&#8217;t have acess to and so we can&#8217;t recolor correctly.</p>
+<p>we then call the close up method which will make sure to clean up the macro file and then restart the macro recorder.   the last thing we do is check if they are specifying the mecro file every run, if so we clear the macro path from the persistant memory.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">hilights_on</span><span class="p">:</span>
+        <span class="n">recolor</span><span class="p">()</span>
+<span class="n">closeUp</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">rememberMacro</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">file</span><span class="o">=</span><span class="bp">None</span>
+</pre></div>
+</td></tr></table></div>
+<p>The decision was made to use a flag (yasara.storage.selection_type) to support recoloring because we would have needed two close buttons otherwise since yasara defaults the request target (yasara.request) that the hud buttons send.</p>
+</div>
+<div class="section" id="close-without-write">
+<h2>Close Without Write<a class="headerlink" href="#close-without-write" title="Permalink to this headline">¶</a></h2>
+<p>This method makes sure that we clean all of our writes from the macro file and don&#8217;t write the zoom information to the file.  Again the first thing we do is check for recoloring, then we call the CloseNoWrite method which takes care of clean up for us, then check the macro flag to see if we wipe the file path.</p>
+</div>
+<div class="section" id="cleanfile">
+<h2>cleanFile<a class="headerlink" href="#cleanfile" title="Permalink to this headline">¶</a></h2>
+<p>This method is responsable for making sure that the macro file is in working order when the plugin is finished.</p>
+<p>First we read the whole file into an array so we can cut out lines we don&#8217;t need.</p>
+<p>The biggest portion of this method is concernd with first getting the indexs for where the trash is located in our lines array and then we cut it out before re writing the file.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span>target = &quot;ShowWin FileSelection,Title=Select your running Macro please,\&quot;No\&quot;,\&quot;*.mcr\&quot;\n&quot;
+if target in lines:
+        start = lines.index(target)-1
+elif lines.count(&quot;# StopPlugin\n&quot;)&gt;1:
+        indexes=[]
+        delete=[]
+        for i in range(len(lines)):
+                if PlugName in lines[i]:
+                delete.append(i+1)
+                delete.append(i)
+                elif &quot;# StopPlugin\n&quot; in lines[i]:
+                        indexes.append(i)
+        indexes.pop() # remove last match, we&#39;ll need to keep him
+        for i in indexes:
+                lines[i]=&quot;\n&quot; # replace duplicates with a blank
+        for i in delete:
+        lines[i]=&quot;\n&quot;
+
+if start is None and &quot;# StopPlugin\n&quot; in lines:
+        start = lines.index(&quot;# StopPlugin\n&quot;)
+elif start is None:
+        start = 0
+</pre></div>
+</td></tr></table></div>
+<p>First we setup a target line incase they had the macro running and this is the first time they are running the plugin since starting Yasara.  If thats the case then our initial load and macro file selection will have been printed to the macro file before we could stop it.  We don&#8217;t know where the user will have installed our plugin, so it&#8217;s safer to use the second line to look for this possibility since it&#8217;s not dependent on the install.</p>
+<p>At line 4 we look to see if we have multiple stop plugin lines.  This happens if they have macro persistance turned off.  This isn&#8217;t a big deal in itself but we do end up with the possiblity of a line to start our plugin and to stop our plugin that have not been commented out.  this will acuse the macro to stop when run so we want to make sure to clean that up.  we set up an array of indexes that will hold the location of all the &#8220;# StopPlugin n&#8221; lines and a second one to hold the location of hte uncomented start and stop lines.  we then look through the array and make a not of these occurances.
+At line 13 we remove the last instance of a commented out stopPlugin line.  this is because it is normaly used as our marker for where to start cleaning up from, we allways need at least one of these lines in the macro file.
+Next all of the unneeded lines are replaced wtih a blank line.
+At line 19 we check to see if we have found a start index above (if either of our corner cases were true) if not then we start at the stopPlugin line because that is the last thing in the file since the last time we ran.  Otherwise we start at the begining of the file since this is a new file, they didn&#8217;t have the plugin running when we started.</p>
+<p>We set the end index by looking for our marker string (&#8220;# Last line to be deletedn&#8221;) which was the first thing in our list of lines to write (added to lines in stopMacroFile), this allows us to find where the good information starts.</p>
+<p>we then go through the lines and replace anything between our two markers with blank lines, then we write the file back and skip any blank lines, effectivly deleting the unnecesary lines.</p>
+</div>
+<div class="section" id="closenowrite">
+<h2>closeNoWrite<a class="headerlink" href="#closenowrite" title="Permalink to this headline">¶</a></h2>
+<p>This method dumps all of our recorded changes so that the results of hte macro file are not changed by our plugin (there will be some unavoidable changes to the file itself but it will run the same before and after our plugin).  we then clean up the file, repaint the hud, and restart the macro.</p>
+</div>
+<div class="section" id="closeup">
+<h2>closeUp<a class="headerlink" href="#closeup" title="Permalink to this headline">¶</a></h2>
+<p>This method edits the last line so that we get the proper effect.  we change the step time from 1 to whatever the user specified in the .ini file (or through the config menu) and we delete the Wait = No (because it defaults as yes).  Finally we append a &#8216;#&#8217; after the line break, this way the final &#8220;StopPlugin&#8221; gets commented out.  We have to do this because that line is written to the macro file after our plugin closes, we have no way to delete it.  we then let cleanFile clean up the macro file for us, reset the yasara hud to remove our buttons, and then start the macro recording again.</p>
+</div>
+<div class="section" id="commonbuttons">
+<h2>commonButtons<a class="headerlink" href="#commonbuttons" title="Permalink to this headline">¶</a></h2>
+<p>creates the buttons common to both the protine and atom tools.  we call print hud so that our buttons are displayed in the hud on the right side.  Then we create a close and a close without writ button, their targets are defined by their name (unforturnetly this is enforced by Yasara in python plugins which is what necesitated work arounds with recoloring highlighted atoms and residues).</p>
+</div>
+<div class="section" id="recolor">
+<h2>recolor<a class="headerlink" href="#recolor" title="Permalink to this headline">¶</a></h2>
+<p>This method handles recoloring for both atoms and residues.  This is because of how yasara handles hud buttons created by python plugs (see <a class="reference internal" href="#closeup">closeUp</a> for more details).  After checking if were working with Atoms or Residues we then set the objects in the repaintList to the color defined by the yasara Element sheet, basicly it is their default color as defined by the project.</p>
+</div>
+<div class="section" id="recordrotate">
+<h2>recordRotate<a class="headerlink" href="#recordrotate" title="Permalink to this headline">¶</a></h2>
+<p>The heart and soul of this plugin, Random Rotation.  This method spins the view randomly, but because yasaras view is a relative to previous moves with no absolut position availible, we have to record every move we make so that we can get back to the view the user finaly selects.</p>
+<p>First we generate a set of random points, then we move the view int he XYZ with AutoMoveTo.  Then we rotate the view in the ABG.</p>
+<p>Finaly we write these movements to the list of lines for the macro.  The important thing about these lines is that the steps are set to 1 and Wait is set to No.  This way when the macro runs all of our moves and zooms will happen in a single move (form start point to end point) and they will all happen at the same time. In this way all the relative positiong is maintained but the user only see the final zoom.</p>
+</div>
+<div class="section" id="replayatom">
+<h2>replayAtom<a class="headerlink" href="#replayatom" title="Permalink to this headline">¶</a></h2>
+<p>This method just bundels together a rotation and a zoom for the atom.</p>
+</div>
+<div class="section" id="replayprotein">
+<h2>replayProtein<a class="headerlink" href="#replayprotein" title="Permalink to this headline">¶</a></h2>
+<p>This method just bundels together a rotation and a zoom for the residue.</p>
+</div>
+<div class="section" id="stopmacrofile">
+<h2>stopMacroFile<a class="headerlink" href="#stopmacrofile" title="Permalink to this headline">¶</a></h2>
+<p>This method primarily ensures that there is not a macro recording while the plugin runs but it is also responsable for doing initial setup and poling the config file.</p>
+<p>First we cehck that there is an active saveData object in storage, if not we initialise one.  This will only be done the first time that the plugin is used since opening Yasara.</p>
+<p>After reading in the user settings we check to see if we need to ask for the macro file that they are recording to.  If they are not currently recording then we set up a new macro file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">MARKER</span><span class="p">]</span>
+<span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">repaintList</span><span class="o">=</span> <span class="p">[]</span>
+<span class="n">yasara</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">repaintWith</span><span class="o">=</span><span class="bp">None</span>
+</pre></div>
+</div>
+<p>This code is reseting the lines we need to write to the macro file and our information needed for repainting atoms or residues.</p>
+<p>Finaly we ensure that the macro is stoped.  we start out by running the macro, because yasara will automaticly close a running macro and start a new one, however if you try to stop a macro and none is running you get an error message.  This way can let the user start our plug with or without a running macro and they don&#8217;t have to deal with a pop up.</p>
+</div>
+<div class="section" id="zoomatom">
+<h2>zoomAtom<a class="headerlink" href="#zoomatom" title="Permalink to this headline">¶</a></h2>
+<p>This method just calles the yasara.ZoomAtom method on our selected atom and then appends a ZoomAtom command to our list of lines to be written when the plugin closes.</p>
+</div>
+<div class="section" id="zoomresidue">
+<h2>zoomResidue<a class="headerlink" href="#zoomresidue" title="Permalink to this headline">¶</a></h2>
+<p>Works exactly the same as zooAtom but just calles and writes methods appropriate for a residue.</p>
+</div>
+<div class="section" id="savedata">
+<h2>saveData<a class="headerlink" href="#savedata" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-members">
+<h3>Data Members<a class="headerlink" href="#data-members" title="Permalink to this headline">¶</a></h3>
+<p>selection &#8211;&gt; The first Atom or residue selected by the user.  This is what will be used when we do the zoom.
+repaintList &#8211;&gt; List of items that were hilighted, used to reset the color when the user is finished
+file &#8211;&gt; The file path for the selected macro, allows us to reuse the same macro file without asking the user which file each time.
+lines &#8211;&gt; the lines that we are going to be writing to the macro file at the end
+hilights_on &#8211;&gt; Flag pulled from the vf_setup.ini telling us if the user wishes to highlight their selection
+hilight_color &#8211;&gt; Color that the user wants to use to highlight with.
+selection_type &#8211;&gt; Tells us if we&#8217;re working with Atoms or Residues for recoloring at the end.
+rememberMacro &#8211;&gt; Flag pulled from config file telling us if they want to specify the macro each time or if we should remember it.
+delay &#8211;&gt; How long the user wants to the zoom to take, pulled from the config file.</p>
+</div>
+</div>
+<div class="section" id="points">
+<h2>points<a class="headerlink" href="#points" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Data Members<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>parts &#8211;&gt; List of points [x, y, z, alpha, beta, gama] where the random range is [25, 25, 25, 240, 240, 240].  XAZ are a flat translation and ABG are a rotation in degrese.</p>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="diff-self-point">
+<h4>diff(self, point):<a class="headerlink" href="#diff-self-point" title="Permalink to this headline">¶</a></h4>
+<p>point &#8211;&gt; another instance of the point class to compare against
+This method is used to make sure that two consecutive translations are not too close together.  Because the movments are made at random there is a chance that consectuive points end up close to each other.</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">neg</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">points</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">):</span>
+                <span class="n">point</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">neg</span>
+                <span class="n">neg</span><span class="o">*=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<p>neg is a modifier to see if we flip the sign.
+we then go point by point and make sure that the diffrence is above 50, if not then we add the difrence together (after mulstiplying by the possible negative number).  Once we use neg we roll the dice again to see if we flip the sign before the next compare (to avoid a string of all neg, all pos, or flip flop numbers).</p>
+</div>
+</div>
+</div>
+<div class="section" id="parser">
+<h2>parser<a class="headerlink" href="#parser" title="Permalink to this headline">¶</a></h2>
+<p>We had some compatability issues with the configparser module.  This classes use of a dictionary and the way we write to the file closley mirros the use of configparser incase some one needs or wants to reimpliment the module.</p>
+<div class="section" id="id2">
+<h3>Data Members<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>config &#8211;&gt; a dictionary to hold the diffrent peramiters found in our .ini file.  Because our ini file is so short we do not use section headers, so we have a simple dictionary instead of a dictionary of dictionaries.</p>
+<p>file_path &#8211;&gt; we grab a copy of the path to this .py sheat.  The ini file is required to be in the plugin directory with this module.  This only works in windows, if you move to a linux or apple system you will need to check the os.</p>
+</div>
+<div class="section" id="id3">
+<h3>Methods<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="writefile-hilightselection-filepersistance-color-delay">
+<h4>writeFile(hilightSelection, filePersistance, color, delay):<a class="headerlink" href="#writefile-hilightselection-filepersistance-color-delay" title="Permalink to this headline">¶</a></h4>
+<p>hilightSelection &#8211;&gt; boolean value, wheather or not highlighting will be used.</p>
+<p>filePErsistance &#8211;&gt; boolean value, wheather or not we will remember what macro file is being used.</p>
+<p>color &#8211;&gt; the color to highlight selected Atoms or Residue, if nothing was selected in in the pop up window, it defaults to the value already in the file.</p>
+<p>delay &#8211;&gt; how long the zoom should take, if it&#8217;s less then 1 we set it to one otherwise Yasara will gripe.</p>
+<p>we load config with the value paris (a &#8216;:&#8217; is used to deliminate identifiers from values).  we then open the file, write the key -&gt; value pairs, and close the file.</p>
+</div>
+<div class="section" id="readfile-data">
+<h4>readFile (data):<a class="headerlink" href="#readfile-data" title="Permalink to this headline">¶</a></h4>
+<p>data &#8211;&gt; a saveData object to store the values in once we read them from the file.</p>
+<p>open the file, read all lines, split them into key &#8211;&gt; value on the &#8216;:&#8217; delimiter, pass them into the config dictionary, then read from the dictionary to the saveData obj.  pretty self explanitory stuff.  incase some one addes the [default] header for an .ini file we put this in a try catch block, this way we can skip the bad split and unknown key.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="working_in_python.html" class="btn btn-neutral float-right" title="Playing with Python" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, James Ebert.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
