@@ -14,13 +14,6 @@ Contents:
    intro
    viewing_tool
    working_in_python
-::
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 

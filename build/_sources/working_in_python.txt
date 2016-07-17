@@ -1,7 +1,7 @@
 Playing with Python
 *******************
 
-here's where we will talk about the python implimentation of the Yasara methods.  I'll try to put it in alphabetical order but to be honest, my letters arn't that good so be prepared to use that ctrl-f magic.
+Here's where we will talk about the python implimentation of the Yasara methods.  you can find the yasara docs on most of this information by going to that yasara\doc folder and using that ctrl-f magic.  Most of the methods can be found under their name in that folder.
 
 ==========
 Methods
@@ -36,11 +36,6 @@ gama --> Z rotation to translate to.
 steps --> how many steps between the start and stop position.  must be grater then zero, by using a step of 1 we make an instantanious move. default is 1.
 
 wait --> if we wait for the previous camera move to finish before we start this one.  Defautl is Yes.
-
-ColorAtom(selection1, first=None, second=None, segments=None, mapcons=None, filename=None):
-------------------------------------------------------------------------------------------------------
-
-PASS we'll get back to it.
 
 PrintHUD():
 -----------

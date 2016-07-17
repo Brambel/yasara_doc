@@ -314,7 +314,7 @@ At line 19 we check to see if we have found a start index above (if either of ou
 </div>
 <div class="section" id="recolor">
 <h2>recolor<a class="headerlink" href="#recolor" title="Permalink to this headline">¶</a></h2>
-<p>This method handles recoloring for both atoms and residues.  This is because of how yasara handles hud buttons created by python plugs (see <a class="reference internal" href="#closeup">closeUp</a> for more details).  After checking if were working with Atoms or Residues we then set the objects in the repaintList to the color defined by the yasara Element sheet, basicly it is their default color as defined by the project.</p>
+<p>This method handles recoloring for both atoms and residues.  This is because of how yasara handles hud buttons created by python plugs (see <a class="reference internal" href="#closeup">closeUp</a> for more details).  After checking if we&#8217;re working with Atoms or Residues we then set the objects in the repaintList to the color defined by the yasara Element sheet, basicly it is their default color as defined by the project.</p>
 </div>
 <div class="section" id="recordrotate">
 <h2>recordRotate<a class="headerlink" href="#recordrotate" title="Permalink to this headline">¶</a></h2>
@@ -378,19 +378,31 @@ delay &#8211;&gt; How long the user wants to the zoom to take, pulled from the c
 <h4>diff(self, point):<a class="headerlink" href="#diff-self-point" title="Permalink to this headline">¶</a></h4>
 <p>point &#8211;&gt; another instance of the point class to compare against
 This method is used to make sure that two consecutive translations are not too close together.  Because the movments are made at random there is a chance that consectuive points end up close to each other.</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">neg</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">neg</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
         <span class="k">if</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">fabs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">points</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">):</span>
                 <span class="n">point</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">neg</span>
                 <span class="n">neg</span><span class="o">*=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">%=</span><span class="mi">25</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">%=</span><span class="mi">180</span>
+                <span class="k">else</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">%=</span><span class="mi">360</span>
 </pre></div>
 </td></tr></table></div>
 <p>neg is a modifier to see if we flip the sign.
-we then go point by point and make sure that the diffrence is above 50, if not then we add the difrence together (after mulstiplying by the possible negative number).  Once we use neg we roll the dice again to see if we flip the sign before the next compare (to avoid a string of all neg, all pos, or flip flop numbers).</p>
+we then go point by point and make sure that the diffrence is above 50, if not then we add the difrence together (after mulstiplying by the possible negative number).  Once we use neg we roll the dice again to see if we flip the sign before the next compare (to avoid a string of all neg, all pos, or flip flop numbers).  We then need to check that by combining our numbers they didn&#8217;t get too big (or two small).  We limit the XYZ to 25, ABG are limited to 360 in the positive direction, and 180 in the negative by Yasara so we cut them down as well.</p>
 </div>
 </div>
 </div>

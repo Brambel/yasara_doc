@@ -171,7 +171,7 @@ creates the buttons common to both the protine and atom tools.  we call print hu
 recolor
 =======
 
-This method handles recoloring for both atoms and residues.  This is because of how yasara handles hud buttons created by python plugs (see `closeUp`_ for more details).  After checking if were working with Atoms or Residues we then set the objects in the repaintList to the color defined by the yasara Element sheet, basicly it is their default color as defined by the project.
+This method handles recoloring for both atoms and residues.  This is because of how yasara handles hud buttons created by python plugs (see `closeUp`_ for more details).  After checking if we're working with Atoms or Residues we then set the objects in the repaintList to the color defined by the yasara Element sheet, basicly it is their default color as defined by the project.
 
 ============
 recordRotate
@@ -269,10 +269,15 @@ This method is used to make sure that two consecutive translations are not too c
 		if(math.fabs(self.parts[i]-points.parts[i])<50):
 			point.parts[i]+=self.parts[i]*neg
 			neg*=random.randrange(-1,1,2)
-			
+			if i > 2:
+				self.parts[i]%=25
+			elif self.parts[i]<0:
+				self.parts[i]%=180
+			else:
+				self.parts[i]%=360
 
 neg is a modifier to see if we flip the sign.
-we then go point by point and make sure that the diffrence is above 50, if not then we add the difrence together (after mulstiplying by the possible negative number).  Once we use neg we roll the dice again to see if we flip the sign before the next compare (to avoid a string of all neg, all pos, or flip flop numbers).
+we then go point by point and make sure that the diffrence is above 50, if not then we add the difrence together (after mulstiplying by the possible negative number).  Once we use neg we roll the dice again to see if we flip the sign before the next compare (to avoid a string of all neg, all pos, or flip flop numbers).  We then need to check that by combining our numbers they didn't get too big (or two small).  We limit the XYZ to 25, ABG are limited to 360 in the positive direction, and 180 in the negative by Yasara so we cut them down as well.
 
 ======
 parser
