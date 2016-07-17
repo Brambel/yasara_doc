@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="yasara_doc 1.1 documentation" href="index.html"/>
-        <link rel="prev" title="Introduction" href="intro.html"/> 
+        <link rel="prev" title="View Finder Break Down" href="viewing_tool.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,9 +82,25 @@
             
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="viewing_tool.html">View Finder Break Down</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Playing with Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#method-foo">Method FOO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#method-bar">Method BAR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods">Methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#automoveto-x-none-y-none-z-none-steps-none-wait-none">AutoMoveTo(x=None, y=None, z=None, steps=None, wait=None):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autorotateto-alpha-none-beta-none-gamma-none-steps-none-wait-none">AutoRotateTo(alpha=None, beta=None, gamma=None, steps=None, wait=None):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coloratom-selection1-first-none-second-none-segments-none-mapcons-none-filename-none">ColorAtom(selection1, first=None, second=None, segments=None, mapcons=None, filename=None):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#printhud">PrintHUD():</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-command">run(command):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#showbutton-text-x-none-y-none-width-none-height-none-border-none-color-none-action-none">ShowButton(text, x=None, y=None, width=None, height=None, border=None, color=None, action=None):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#showwin-selection1-title-arglist2">ShowWin(selection1, title, *arglist2):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zoomatom-selection1-steps-none-wait-none">ZoomAtom(selection1, steps=None, wait=None):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zoomres-selection1-steps-none-wait-none">ZoomRes(selection1, steps=None, wait=None):</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-members">Data Members</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#yasara-storage">yasara.storage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#yasara-request">yasara.request</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -133,14 +149,80 @@
             
   <div class="section" id="playing-with-python">
 <h1>Playing with Python<a class="headerlink" href="#playing-with-python" title="Permalink to this headline">¶</a></h1>
-<p>heres where we will talk about the python implimentation</p>
-<div class="section" id="method-foo">
-<h2>Method FOO<a class="headerlink" href="#method-foo" title="Permalink to this headline">¶</a></h2>
-<p>outline information about each method, also plan to link to yasara docs for their CLI commands which provide similar functionality.</p>
+<p>here&#8217;s where we will talk about the python implimentation of the Yasara methods.  I&#8217;ll try to put it in alphabetical order but to be honest, my letters arn&#8217;t that good so be prepared to use that ctrl-f magic.</p>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="automoveto-x-none-y-none-z-none-steps-none-wait-none">
+<h3>AutoMoveTo(x=None, y=None, z=None, steps=None, wait=None):<a class="headerlink" href="#automoveto-x-none-y-none-z-none-steps-none-wait-none" title="Permalink to this headline">¶</a></h3>
+<p>All moves are relative to current position, there is no exposed aboslute position.</p>
+<p>x &#8211;&gt; X position to translate to.</p>
+<p>y &#8211;&gt; Y position to translate to.</p>
+<p>z &#8211;&gt; Z position to translate to.</p>
+<p>steps &#8211;&gt; how many steps between the start and stop position.  must be grater then zero, by using a step of 1 we make an instantanious move. default is 1.</p>
+<p>wait &#8211;&gt; if we wait for the previous camera move to finish before we start this one.  Defautl is Yes.</p>
 </div>
-<div class="section" id="method-bar">
-<h2>Method BAR<a class="headerlink" href="#method-bar" title="Permalink to this headline">¶</a></h2>
-<p>pass</p>
+<div class="section" id="autorotateto-alpha-none-beta-none-gamma-none-steps-none-wait-none">
+<h3>AutoRotateTo(alpha=None, beta=None, gamma=None, steps=None, wait=None):<a class="headerlink" href="#autorotateto-alpha-none-beta-none-gamma-none-steps-none-wait-none" title="Permalink to this headline">¶</a></h3>
+<p>All rotations are relative to current position, there is no exposed aboslute position.</p>
+<p>alpha &#8211;&gt; X rotation to translate to.</p>
+<p>beta &#8211;&gt; Y rotation to translate to.</p>
+<p>gama &#8211;&gt; Z rotation to translate to.</p>
+<p>steps &#8211;&gt; how many steps between the start and stop position.  must be grater then zero, by using a step of 1 we make an instantanious move. default is 1.</p>
+<p>wait &#8211;&gt; if we wait for the previous camera move to finish before we start this one.  Defautl is Yes.</p>
+</div>
+<div class="section" id="coloratom-selection1-first-none-second-none-segments-none-mapcons-none-filename-none">
+<h3>ColorAtom(selection1, first=None, second=None, segments=None, mapcons=None, filename=None):<a class="headerlink" href="#coloratom-selection1-first-none-second-none-segments-none-mapcons-none-filename-none" title="Permalink to this headline">¶</a></h3>
+<p>PASS we&#8217;ll get back to it.</p>
+</div>
+<div class="section" id="printhud">
+<h3>PrintHUD():<a class="headerlink" href="#printhud" title="Permalink to this headline">¶</a></h3>
+<p>This allows us display buttons to the HUD, which is the right menu superimposed over the modlel.</p>
+</div>
+<div class="section" id="run-command">
+<h3>run(command):<a class="headerlink" href="#run-command" title="Permalink to this headline">¶</a></h3>
+<p>this allows us to use comands not support by the python interface.  it&#8217;s slow because we go from the python thread to anacond to c++, so don&#8217;t use it unelss theres no other way to get to the command you need.  starting and stoping macro records are just such commands.</p>
+<p>command &#8211;&gt; this is the yanacond command</p>
+</div>
+<div class="section" id="showbutton-text-x-none-y-none-width-none-height-none-border-none-color-none-action-none">
+<h3>ShowButton(text, x=None, y=None, width=None, height=None, border=None, color=None, action=None):<a class="headerlink" href="#showbutton-text-x-none-y-none-width-none-height-none-border-none-color-none-action-none" title="Permalink to this headline">¶</a></h3>
+<p>text &#8211;&gt; text on the button, in python this is also the yasara.request that will be provided to catch the buttons behavior.</p>
+<p>x &#8211;&gt; x position of the top left corner</p>
+<p>y &#8211;&gt; y position of the top left corner</p>
+<p>width &#8211;&gt; pixel width of the button</p>
+<p>height &#8211;&gt; pixel height of the button</p>
+<p>border &#8211;&gt;  boolean value, if the button has a border or not</p>
+<p>color &#8211;&gt; color the button is suposed to be, in python these color are incorrect, it does not display as the selected color.</p>
+</div>
+<div class="section" id="showwin-selection1-title-arglist2">
+<h3>ShowWin(selection1, title, <a href="#id1"><span class="problematic" id="id2">*</span></a>arglist2):<a class="headerlink" href="#showwin-selection1-title-arglist2" title="Permalink to this headline">¶</a></h3>
+<p>This will generate a window of whatever type you need.</p>
+<p>selection1 &#8211;&gt; the type of window, there are a set of key words to determin your window type.</p>
+<p>title &#8211;&gt; The title you want to apper at the top of the window.</p>
+<p><a href="#id3"><span class="problematic" id="id4">*</span></a>arglist2 &#8211;&gt; the arguemtns to pass in, this is determind by the window type.</p>
+<p>please see the yasara documentation &lt;PUT A LINK HERE&gt; since I&#8217;m not typing out everything they already said.</p>
+</div>
+<div class="section" id="zoomatom-selection1-steps-none-wait-none">
+<h3>ZoomAtom(selection1, steps=None, wait=None):<a class="headerlink" href="#zoomatom-selection1-steps-none-wait-none" title="Permalink to this headline">¶</a></h3>
+<p>This zooms in on an atom or a group of atoms.  If more then one atom is selcted it will not rotate the view, it is a straight XYZ pan.</p>
+<p>selection1 &#8211;&gt; the atom or group of atoms, we use yasara.selection[0].number.inyas to denote the atom, we make sure to select the first atom to zoom on.</p>
+<p>steps &#8211;&gt; how many steps between the start and stop position.  must be grater then zero, by using a step of 1 we make an instantanious move. default is 1.</p>
+<p>wait &#8211;&gt; if we wait for the previous camera move to finish before we start this one.  Defautl is Yes.</p>
+</div>
+<div class="section" id="zoomres-selection1-steps-none-wait-none">
+<h3>ZoomRes(selection1, steps=None, wait=None):<a class="headerlink" href="#zoomres-selection1-steps-none-wait-none" title="Permalink to this headline">¶</a></h3>
+<p>This is exactly the same as &lt;ZoomAtom MAKE SURE TO LINK&gt;, except we target residues, unfortuently the underlying c++ is not smart enough to let us use a single method for all these variations.</p>
+</div>
+</div>
+<div class="section" id="data-members">
+<h2>Data Members<a class="headerlink" href="#data-members" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="yasara-storage">
+<h3>yasara.storage<a class="headerlink" href="#yasara-storage" title="Permalink to this headline">¶</a></h3>
+<p>persistant storage, your plugin can use this repeatedly betwen calls, so long as Yasara is not closed.  It is a single location so you need to assign an object to it that can hold everything you need.</p>
+</div>
+<div class="section" id="yasara-request">
+<h3>yasara.request<a class="headerlink" href="#yasara-request" title="Permalink to this headline">¶</a></h3>
+<p>&lt;GET BACK TO IT&gt;</p>
+</div>
 </div>
 </div>
 
@@ -152,7 +234,7 @@
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
       
-        <a href="intro.html" class="btn btn-neutral" title="Introduction" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="viewing_tool.html" class="btn btn-neutral" title="View Finder Break Down" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
